@@ -17,7 +17,7 @@ namespace GTAVNativesWrapper
 
 		private Assembly ResolveAssembly(object sender, ResolveEventArgs args)
 		{
-			string assemblyName = args.RequestingAssembly.GetName().Name + ".dll";
+			string assemblyName = args.Name.Substring(0, args.Name.IndexOf(',')) + ".dll";
 
 			try
 			{
