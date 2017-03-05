@@ -3,7 +3,7 @@ A tool that allows developers to wrap GTA V native functions in order to provide
 
 GTA V Natives Wrapper uses the MIT License
 
-Copyright © 2016 Pursuit
+Copyright © 2017 Pursuit
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
