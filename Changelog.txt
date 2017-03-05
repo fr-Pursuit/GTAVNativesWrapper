@@ -1,0 +1,5 @@
+﻿__0.2.2__
+* The program now uses the Win10 theme from PursuitLib
+* Settings / logs are now saved in the same directory as the .exe
++ Added support for the "unktype_" type
+* Ai natives are now called with their names (RPH requirement)

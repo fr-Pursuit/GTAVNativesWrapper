@@ -1,0 +1,79 @@
+﻿<Window x:Class="GTAVNativesWrapper.Ui.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        ResizeMode="CanMinimize"
+        WindowStartupLocation="CenterScreen"
+        Icon="/GTAVNativesWrapper;component/icon.ico"
+        Title="{Binding WindowTitle, FallbackValue=GTA V Natives Wrapper}" Width="700" Height="485">
+
+    <DockPanel Margin="3">
+        <Grid DockPanel.Dock="Bottom" HorizontalAlignment="Stretch">
+            <Button Name="AboutButton" HorizontalAlignment="Right" ToolTip="About" Width="20" Height="20" Margin="6">
+                <Image Source="/GTAVNativesWrapper;component/resources/about.png" />
+            </Button>
+            <Button Name="GenerateButton" Content="Generate code" IsEnabled="{Binding ButtonsEnabled}" Width="150" FontSize="15" FontWeight="Bold" Margin="5" Padding="0,5,0,5"/>
+        </Grid>
+
+        <GroupBox DockPanel.Dock="Left" Header="Settings" Margin="3">
+            <StackPanel Orientation="Vertical">
+                <GroupBox Header="Visibility" Margin="3">
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton GroupName="visibility" Content="public" IsChecked="{Binding VisibilityPublic, FallbackValue=true}" IsEnabled="{Binding ButtonsEnabled}" Margin="3" />
+                        <RadioButton GroupName="visibility" Content="internal" IsChecked="{Binding VisibilityInternal}" IsEnabled="{Binding ButtonsEnabled}" Margin="3" />
+                        <RadioButton GroupName="visibility" Content="protected" IsChecked="{Binding VisibilityProtected}" IsEnabled="{Binding ButtonsEnabled}" Margin="3" />
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="Classes" Margin="3">
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal" Margin="3">
+                            <Label Content="Output folder: " Width="120" />
+                            <TextBox Width="150" Text="{Binding OutputFolder}" IsEnabled="{Binding ButtonsEnabled}" Height="20"/>
+                            <Button Name="BrowseButton" ToolTip="Browse" IsEnabled="{Binding ButtonsEnabled}" Width="20" Height="20" Margin="3">
+                                <Image Source="/GTAVNativesWrapper;component/resources/folder.png" />
+                            </Button>
+                        </StackPanel>
+                        <CheckBox Content="Use separated files for each class" IsChecked="{Binding UseSeparatedFiles}" IsEnabled="{Binding ButtonsEnabled}" Margin="3"/>
+                        <StackPanel Orientation="Horizontal" Margin="3">
+                            <Label Content="Generated file name: " Width="120" />
+                            <TextBox Name="FileName" Text="{Binding FileName, FallbackValue=Natives.cs}" Width="150" Height="20"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="3">
+                            <Label Content="Namespace:" Width="120" />
+                            <TextBox Text="{Binding Namespace, FallbackValue=GTAV.Natives}" IsEnabled="{Binding ButtonsEnabled}" Width="150" Height="20"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="3">
+                            <Label Content="Classes prefix: " />
+                            <TextBox Text="{Binding ClassesPrefix}" TextAlignment="Center" IsEnabled="{Binding ButtonsEnabled}" Margin="0,0,6,0" Width="55" Height="20"/>
+                            <Label Content="Classes suffix: " Margin="6,0,0,0"/>
+                            <TextBox Text="{Binding ClassesSuffix, FallbackValue=Natives}" TextAlignment="Center" IsEnabled="{Binding ButtonsEnabled}" Width="55" Height="20"/>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="Code generation" Margin="3">
+                    <StackPanel Orientation="Vertical">
+                        <CheckBox Content="Include comments" IsEnabled="{Binding ButtonsEnabled}" IsChecked="{Binding Comments, FallbackValue=true}" Margin="3" />
+                        <CheckBox Content="Generate compact code" IsEnabled="{Binding ButtonsEnabled}" IsChecked="{Binding Compact, FallbackValue=true}" Margin="3" />
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="Misc" Margin="3">
+                    <StackPanel Orientation="Vertical">
+                        <CheckBox Content="Use a log file" IsEnabled="{Binding ButtonsEnabled}" IsChecked="{Binding UseLogFile, FallbackValue=true}" Margin="3" />
+                        <CheckBox Content="Check updates automatically" IsEnabled="{Binding ButtonsEnabled}" IsChecked="{Binding CheckUpdates, FallbackValue=true}" Margin="3" />
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox DockPanel.Dock="Right" Header="Output" Margin="3">
+            <RichTextBox Name="OutputBox" AcceptsReturn="true" IsReadOnly="true" VerticalScrollBarVisibility="Auto"  Margin="3">
+                <FlowDocument>
+                    <Paragraph Name="Output" />
+                </FlowDocument>
+            </RichTextBox>
+        </GroupBox>
+        
+    </DockPanel>
+</Window>

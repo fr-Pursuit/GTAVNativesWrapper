@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ParserConfig>
+	<Header>
+		<Suppress Warning="CS1591" />
+		<Suppress Warning="CS1570" />
+		<Using Namespace="Rage" />
+		<Using Namespace="Rage.Native" />
+		<Using Namespace="System" />
+	</Header>
+	<Types>
+		<Type Native="BOOL" Name="bool" />
+		<Type Native="BOOL*" Name="bool" />
+		<Type Native="char*" Name="string" />
+		<Type Native="Object" Name="object" />
+		<Type Native="Object*" Name="object" />
+		<Type Native="Any*" Name="long" />
+		<Type Native="Any" Name="NativeArgument" />
+		<Type Native="unktype_" Name="NativeArgument" />
+		<Type Native="Hash*" Name="uint" />
+		<Type Native="Cam" Name="int" />
+		<Type Native="Cam*" Name="int" />
+		<Type Native="ScrHandle" Name="int" />
+		<Type Native="ScrHandle*" Name="int" />
+		<Type Native="Pickup" Name="int" />
+		<Type Native="Pickup*" Name="int" />
+	</Types>
+	<Classes>
+		<Class Name="CAM">
+			<Method Native="_GET_GAMEPLAY_CAM_ROT" Name="GET_GAMEPLAY_CAM2_ROT" />
+		</Class>
+	</Classes>
+	<CastMethods>
+		<CastMethod From="bool" To="int" Method="Convert.ToInt32" />
+	</CastMethods>
+</ParserConfig>
